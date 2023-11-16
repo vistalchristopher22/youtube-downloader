@@ -26,6 +26,9 @@
         <strong> {{ download.percentage }}%</strong>
       </p>
     </div>
+    <span>
+      <small>Code with heart by <strong>CHRis</strong> </small>
+    </span>
   </div>
 </template>
 
