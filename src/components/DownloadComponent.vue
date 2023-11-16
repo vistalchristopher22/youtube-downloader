@@ -31,18 +31,18 @@ export default {
       code: null,
     });
 
-    const socket = io("http://51.79.242.246:3000");
+    const socket = io("https://51.79.242.246:3000");
     socket.on("download-progress", (data) => {
       download.value.percentage = data;
     });
 
     const submitLink = () => {
       axios
-        .post(`http://51.79.242.246:3000/download`, download.value)
+        .post(`https://51.79.242.246:3000/download`, download.value)
         .then((response) => {
           if (response.status === 200) {
             download.value.code = response.data.code;
-            window.location.href = `http://51.79.242.246:3000/download-file?code=${response.data.code}&type=${response.data.type}`;
+            window.location.href = `https://51.79.242.246:3000/download-file?code=${response.data.code}&type=${response.data.type}`;
             console.log("display the download button");
           }
         });
