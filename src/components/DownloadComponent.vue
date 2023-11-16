@@ -1,12 +1,15 @@
 <template>
   <div class="container">
     <h1>YouTube Video Downloader</h1>
-    <input
-      type="text"
-      placeholder="Paste YouTube link"
-      v-model="download.link"
-      class="input-field"
-    />
+    <div class="input">
+      <input
+        type="text"
+        placeholder="Paste YouTube link"
+        v-model="download.link"
+        class="input-field"
+      />
+      <button @click="submitLink" class="start-button">Start Download</button>
+    </div>
     <div class="radio-buttons">
       <label>
         <input type="radio" value="mp3" v-model="download.type" />
@@ -17,7 +20,6 @@
         MP4
       </label>
     </div>
-    <button @click="submitLink" class="start-button">Start Download</button>
     <div class="progress">
       <progress :value="download.percentage" max="100"></progress>
       <p>
@@ -29,7 +31,8 @@
 
 <style scoped>
 .container {
-  width: 20vw;
+  width: 90%;
+  max-width: 600px;
   margin: 0 auto;
   text-align: center;
   background-color: #f4f4f4;
@@ -42,12 +45,34 @@ h1 {
   margin-bottom: 20px;
 }
 
+.input-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
 .input-field {
-  width: 18vw;
+  width: 100%;
+  max-width: 400px;
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+}
+
+.start-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.start-button:hover {
+  background-color: #0056b3;
 }
 
 .radio-buttons {
@@ -58,19 +83,6 @@ h1 {
 
 label {
   margin-right: 10px;
-}
-
-.start-button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.start-button:hover {
-  background-color: #0056b3;
 }
 
 .progress {
@@ -103,6 +115,15 @@ progress::-webkit-progress-value {
   }
   to {
     background-position: 0 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .input-container {
+    flex-wrap: nowrap;
+  }
+  .start-button {
+    margin-left: 20px;
   }
 }
 </style>
