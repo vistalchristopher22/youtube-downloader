@@ -1,22 +1,111 @@
 <template>
-  <div>
+  <div class="container">
+    <h1>YouTube Video Downloader</h1>
     <input
       type="text"
-      placeholder="Enter youtube link"
+      placeholder="Paste YouTube link"
       v-model="download.link"
+      class="input-field"
     />
-    <div>
-      <input type="radio" id="mp3" value="mp3" v-model="download.type" />
-      <label for="mp3">MP3</label>
+    <div class="radio-buttons">
+      <label>
+        <input type="radio" value="mp3" v-model="download.type" />
+        MP3
+      </label>
+      <label>
+        <input type="radio" value="mp4" v-model="download.type" />
+        MP4
+      </label>
     </div>
-    <div>
-      <input type="radio" id="mp4" value="mp4" v-model="download.type" />
-      <label for="mp4">MP4</label>
+    <button @click="submitLink" class="start-button">Start Download</button>
+    <div class="progress">
+      <progress :value="download.percentage" max="100"></progress>
+      <p>
+        <strong> {{ download.percentage }}%</strong>
+      </p>
     </div>
-    <button @click="submitLink">Start</button>
-    <div>Progress : {{ download.percentage }}</div>
   </div>
 </template>
+
+<style scoped>
+.container {
+  width: 20vw;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #f4f4f4;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.input-field {
+  width: 18vw;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.radio-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+label {
+  margin-right: 10px;
+}
+
+.start-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.start-button:hover {
+  background-color: #0056b3;
+}
+
+.progress {
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+progress {
+  width: 100%;
+  height: 20px;
+  border: none;
+  background-color: #ddd;
+  border-radius: 5px;
+  animation: progress-bar-stripes 1s linear infinite;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #ddd;
+  border-radius: 5px;
+}
+
+progress::-webkit-progress-value {
+  background-color: #007bff;
+  border-radius: 5px;
+}
+
+@keyframes progress-bar-stripes {
+  from {
+    background-position: 1rem 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+</style>
 
 <script>
 import { ref } from "vue";
@@ -43,7 +132,6 @@ export default {
           if (response.status === 200) {
             download.value.code = response.data.code;
             window.location.href = `https://surigaodelsur.gov.ph:3000/download-file?code=${response.data.code}&type=${response.data.type}`;
-            console.log("display the download button");
           }
         });
     };

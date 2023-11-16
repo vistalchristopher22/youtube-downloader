@@ -1,5 +1,7 @@
 <template>
-  <DownloadComponent />
+  <div class="centered-container">
+    <DownloadComponent />
+  </div>
 </template>
 
 <script>
@@ -14,12 +16,17 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+* {
+  font-family: "Inter", sans-serif;
+}
+
+.centered-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
 }
 </style>
