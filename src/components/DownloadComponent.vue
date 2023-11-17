@@ -1,6 +1,13 @@
 <template>
   <div class="container">
-    <h1>YouTube Video Downloader</h1>
+    <p>
+      <strong>TOP SPONSORS</strong>
+    </p>
+    <div class="sponsors">
+      <img src="@/assets/gam.jpg" width="100" alt="" />
+      <img src="@/assets/jun.jpg" width="100" alt="" />
+    </div>
+    <p></p>
     <div class="input">
       <input
         type="text"
@@ -128,6 +135,12 @@ progress::-webkit-progress-value {
   .start-button {
     margin-left: 20px;
   }
+}
+
+.sponsors {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 </style>
 

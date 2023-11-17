@@ -1,5 +1,6 @@
 <template>
   <div class="centered-container">
+    <h1 class="title">YouTube Video Downloader</h1>
     <DownloadComponent />
   </div>
 </template>
@@ -20,9 +21,16 @@ export default {
   font-family: "Inter", sans-serif;
 }
 
+.title {
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+}
+
 .centered-container {
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
