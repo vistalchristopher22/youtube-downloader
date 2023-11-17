@@ -21,6 +21,10 @@ export default {
   font-family: "Inter", sans-serif;
 }
 
+body {
+  background: linear-gradient(to bottom, #031019, #000000);
+}
+
 .title {
   text-transform: uppercase;
   letter-spacing: 1.1px;

@@ -1,8 +1,6 @@
 <template>
   <div class="container">
-    <p>
-      <strong>TOP SPONSORS</strong>
-    </p>
+    <h1>TOP SPONSORS</h1>
     <div class="sponsors">
       <a
         href="https://www.youtube.com/watch?v=astISOttCQ0&ab_channel=icanrockyourworld"
@@ -28,7 +26,10 @@
         v-model="download.link"
         class="input-field"
       />
-      <button @click="submitLink" class="start-button">Start Download</button>
+      <button @click="submitLink" class="start-button">
+        <span v-if="!downloading">Start Download</span>
+        <span v-else>Downloading...</span>
+      </button>
     </div>
     <div class="radio-buttons">
       <label>
@@ -41,11 +42,10 @@
       </label>
     </div>
     <div class="progress">
+      <h3>{{ download.percentage }}%</h3>
       <progress :value="download.percentage" max="100"></progress>
-      <p>
-        <strong> {{ download.percentage }}%</strong>
-      </p>
     </div>
+    <br />
     <span>
       <small>Code with heart by <strong>CHRis</strong> </small>
     </span>
@@ -86,7 +86,7 @@ h1 {
 
 .start-button {
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #031019;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -128,7 +128,7 @@ progress::-webkit-progress-bar {
 }
 
 progress::-webkit-progress-value {
-  background-color: #007bff;
+  background-color: #031019;
   border-radius: 5px;
 }
 
@@ -155,6 +155,12 @@ progress::-webkit-progress-value {
   align-items: center;
   justify-content: space-around;
 }
+
+.sponsors img {
+  border-radius: 50%;
+  border: 1px solid #031019;
+  cursor: pointer;
+}
 </style>
 
 <script>
@@ -169,6 +175,7 @@ export default {
       percentage: 0,
       code: null,
     });
+    const downloading = ref(false);
 
     const socket = io("https://surigaodelsur.gov.ph:3000");
     socket.on("download-progress", (data) => {
@@ -176,11 +183,15 @@ export default {
     });
 
     const submitLink = () => {
+      download.value.percentage = 0;
+      downloading.value = true;
       axios
         .post(`https://surigaodelsur.gov.ph:3000/download`, download.value)
         .then((response) => {
           if (response.status === 200) {
             download.value.code = response.data.code;
+            download.value.percentage = 0;
+            downloading.value = false;
             window.location.href = `https://surigaodelsur.gov.ph:3000/download-file?code=${response.data.code}&type=${response.data.type}`;
           }
         });
@@ -188,6 +199,7 @@ export default {
 
     return {
       download,
+      downloading,
       submitLink,
     };
   },
