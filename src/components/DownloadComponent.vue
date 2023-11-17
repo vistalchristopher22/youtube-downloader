@@ -6,6 +6,8 @@
     <div class="sponsors">
       <img src="@/assets/gam.jpg" width="100" alt="" />
       <img src="@/assets/jun.jpg" width="100" alt="" />
+      <img src="@/assets/darem.jpg" width="100" alt="" />
+      <img src="@/assets/zak.jpg" width="100" alt="" />
     </div>
     <p></p>
     <div class="input">
