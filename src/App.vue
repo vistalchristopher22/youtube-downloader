@@ -1,6 +1,6 @@
 <template>
   <div class="centered-container">
-    <h1 class="title">YouTube Video Downloader</h1>
+    <img src="@/assets/logo.png" width="250" alt="" />
     <DownloadComponent />
   </div>
 </template>
