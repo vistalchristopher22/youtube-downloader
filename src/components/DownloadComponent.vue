@@ -4,7 +4,10 @@
       <strong>TOP SPONSORS</strong>
     </p>
     <div class="sponsors">
-      <a href="https://www.facebook.com/ymmahghanny" target="_blank">
+      <a
+        href="https://www.youtube.com/watch?v=astISOttCQ0&ab_channel=icanrockyourworld"
+        target="_blank"
+      >
         <img src="@/assets/gam.jpg" width="100" alt="" />
       </a>
       <a href="https://www.facebook.com/enigma.gloo" target="_blank">
@@ -13,7 +16,7 @@
       <a href="https://www.facebook.com/libudangvlog" target="_blank">
         <img src="@/assets/darem.jpg" width="100" alt="" />
       </a>
-      <a href="https://www.facebook.com/jzkda" target="_blank">
+      <a href="https://www.facebook.com/ZAkventureTV" target="_blank">
         <img src="@/assets/zak.jpg" width="100" alt="" />
       </a>
     </div>
