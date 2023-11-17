@@ -4,10 +4,18 @@
       <strong>TOP SPONSORS</strong>
     </p>
     <div class="sponsors">
-      <img src="@/assets/gam.jpg" width="100" alt="" />
-      <img src="@/assets/jun.jpg" width="100" alt="" />
-      <img src="@/assets/darem.jpg" width="100" alt="" />
-      <img src="@/assets/zak.jpg" width="100" alt="" />
+      <a href="https://www.facebook.com/ymmahghanny" target="_blank">
+        <img src="@/assets/gam.jpg" width="100" alt="" />
+      </a>
+      <a href="https://www.facebook.com/enigma.gloo" target="_blank">
+        <img src="@/assets/jun.jpg" width="100" alt="" />
+      </a>
+      <a href="https://www.facebook.com/libudangvlog" target="_blank">
+        <img src="@/assets/darem.jpg" width="100" alt="" />
+      </a>
+      <a href="https://www.facebook.com/jzkda" target="_blank">
+        <img src="@/assets/zak.jpg" width="100" alt="" />
+      </a>
     </div>
     <p></p>
     <div class="input">
